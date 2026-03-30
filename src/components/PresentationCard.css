@@ -1,0 +1,124 @@
+.presentation-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-bounce);
+    cursor: pointer;
+    height: 100%;
+}
+
+.presentation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-normal);
+}
+
+.presentation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-3d);
+}
+
+.presentation-card:hover::before {
+    transform: scaleX(1);
+}
+
+.presentation-card.disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.presentation-card.disabled:hover {
+    transform: none;
+    box-shadow: var(--glass-shadow);
+}
+
+.presentation-card.disabled:hover::before {
+    transform: scaleX(0);
+}
+
+.card-status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.badge-available {
+    background: var(--light-green);
+    color: var(--primary-green);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-soon {
+    background: #E2E8F0;
+    color: var(--text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.card-icon-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.card-icon-bg {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-bounce), background-color var(--transition-fast);
+}
+
+.presentation-card:hover .card-icon-bg {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.presentation-card.disabled:hover .card-icon-bg {
+    transform: none;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.card-actions {
+    margin-top: auto;
+}
+
+.card-btn {
+    width: 100%;
+}
