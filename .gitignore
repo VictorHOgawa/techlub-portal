@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+.env
+
+# APKs (servidos pela Vercel, muito grandes para o GitHub)
+public/apks/*.apk
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
